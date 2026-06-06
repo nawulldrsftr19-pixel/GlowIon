@@ -55,8 +55,10 @@ button:hover {
 # --- CSS untuk animasi (spinner, flame, tube) ---
 st.markdown(""" ... """, unsafe_allow_html=True)
 
+
+
 #--- CSS untuk judul ---
-st.title ("GlowIon — Analisis Kualitatif Kation DAN Anion (Metode Sentrifugasi) dan uji spesifik")
+st.title ("LABKIM — Analisis Kualitatif Kation DAN Anion (Metode Sentrifugasi) dan uji spesifik")
 # --- Judul dengan tab warna + efek hover glow ---
 st.markdown("""
 <style>
@@ -322,117 +324,58 @@ with tab4:
 
     skor = 0
 
-    # Soal 1
-    jawab1 = st.radio(
-        "1. Pereaksi yang digunakan untuk mengendapkan kation golongan I adalah ...",
-        ["NH₄OH", "HCl", "BaCl₂", "H₂SO₄"],
-        key="s1"
-    )
+    jawab1 = st.radio("1. Pereaksi yang digunakan untuk mengendapkan kation golongan I adalah ...",
+                      ["NH₄OH", "HCl", "BaCl₂", "H₂SO₄"], index=None, key="s1")
 
-    # Soal 2
-    jawab2 = st.radio(
-        "2. Ion yang termasuk golongan I adalah ...",
-        ["Fe³⁺", "Ag⁺", "Ba²⁺", "Ca²⁺"],
-        key="s2"
-    )
+    jawab2 = st.radio("2. Ion yang termasuk golongan I adalah ...",
+                      ["Fe³⁺", "Ag⁺", "Ba²⁺", "Ca²⁺"], index=None, key="s2")
 
-    # Soal 3
-jawab3 = st.radio(
-    "3. Endapan AgCl berwarna ...",
-    ["Merah", "Kuning", "Putih", "Hijau"],
-    key="s3"
-)
+    jawab3 = st.radio("3. Endapan AgCl berwarna ...",
+                      ["Merah", "Kuning", "Putih", "Hijau"], index=None, key="s3")
 
-# Soal 4
-jawab4 = st.radio(
-    "4. Kation Al³⁺ termasuk golongan ...",
-    ["I", "II", "III", "V"],
-    key="s4"
-)
+    jawab4 = st.radio("4. Kation Al³⁺ termasuk golongan ...",
+                      ["I", "II", "III", "V"], index=None, key="s4")
 
-# Soal 5
-jawab5 = st.radio(
-    "5. Pereaksi yang digunakan untuk mengendapkan Al³⁺ dan Fe³⁺ adalah ...",
-    ["NH₄OH", "HCl", "BaCl₂", "KI"],
-    key="s5"
-)
+    jawab5 = st.radio("5. Pereaksi yang digunakan untuk mengendapkan Al³⁺ dan Fe³⁺ adalah ...",
+                      ["NH₄OH", "HCl", "BaCl₂", "KI"], index=None, key="s5")
 
-# Soal 6
-jawab6 = st.radio(
-    "6. Kation yang termasuk golongan V adalah ...",
-    ["Ag⁺", "Pb²⁺", "Ca²⁺", "Fe³⁺"],
-    key="s6"
-)
+    jawab6 = st.radio("6. Kation yang termasuk golongan V adalah ...",
+                      ["Ag⁺", "Pb²⁺", "Ca²⁺", "Fe³⁺"], index=None, key="s6")
 
-# Soal 7
-jawab7 = st.radio(
-    "7. Pereaksi untuk identifikasi ion klorida (Cl⁻) adalah ...",
-    ["AgNO₃", "NaOH", "NH₄OH", "K₂CrO₄"],
-    key="s7"
-)
+    jawab7 = st.radio("7. Pereaksi untuk identifikasi ion klorida (Cl⁻) adalah ...",
+                      ["AgNO₃", "NaOH", "NH₄OH", "K₂CrO₄"], index=None, key="s7")
 
-# Soal 8
-jawab8 = st.radio(
-    "8. Anion yang menghasilkan gas CO₂ saat direaksikan dengan asam adalah ...",
-    ["Cl⁻", "I⁻", "CO₃²⁻", "SO₄²⁻"],
-    key="s8"
-)
+    jawab8 = st.radio("8. Anion yang menghasilkan gas CO₂ saat direaksikan dengan asam adalah ...",
+                      ["Cl⁻", "I⁻", "CO₃²⁻", "SO₄²⁻"], index=None, key="s8")
 
-# Soal 9
-jawab9 = st.radio(
-    "9. Pereaksi untuk identifikasi ion sulfat adalah ...",
-    ["AgNO₃", "BaCl₂", "KI", "NH₄OH"],
-    key="s9"
-)
+    jawab9 = st.radio("9. Pereaksi untuk identifikasi ion sulfat adalah ...",
+                      ["AgNO₃", "BaCl₂", "KI", "NH₄OH"], index=None, key="s9")
 
-# Soal 10
-jawab10 = st.radio(
-    "10. Ion yang menghasilkan endapan putih dengan BaCl₂ adalah ...",
-    ["SO₄²⁻", "Cl⁻", "I⁻", "NO₃⁻"],
-    key="s10"
-)
+    jawab10 = st.radio("10. Ion yang menghasilkan endapan putih dengan BaCl₂ adalah ...",
+                       ["SO₄²⁻", "Cl⁻", "I⁻", "NO₃⁻"], index=None, key="s10")
 
-if st.button("Lihat Hasil"):
+    if st.button("Lihat Hasil"):
+        if jawab1 == "HCl": skor += 10
+        if jawab2 == "Ag⁺": skor += 10
+        if jawab3 == "Putih": skor += 10
+        if jawab4 == "III": skor += 10
+        if jawab5 == "NH₄OH": skor += 10
+        if jawab6 == "Ca²⁺": skor += 10
+        if jawab7 == "AgNO₃": skor += 10
+        if jawab8 == "CO₃²⁻": skor += 10
+        if jawab9 == "BaCl₂": skor += 10
+        if jawab10 == "SO₄²⁻": skor += 10
 
-    if jawab1 == "HCl":
-        skor += 10
+        st.success(f"Skor Anda: {skor}/100")
 
-    if jawab2 == "Ag⁺":
-        skor += 10
+        if skor >= 80:
+            st.balloons()
+            st.write("🎉 Sangat Baik! Pemahaman Anda sudah sangat baik.")
+        elif skor >= 60:
+            st.write("👍 Baik! Tetap semangat belajar.")
+        else:
+            st.write("📚 Perlu belajar lagi agar lebih memahami materi.")
 
-    if jawab3 == "Putih":
-        skor += 10
 
-    if jawab4 == "III":
-        skor += 10
 
-    if jawab5 == "NH₄OH":
-        skor += 10
-
-    if jawab6 == "Ca²⁺":
-        skor += 10
-
-    if jawab7 == "AgNO₃":
-        skor += 10
-
-    if jawab8 == "CO₃²⁻":
-        skor += 10
-
-    if jawab9 == "BaCl₂":
-        skor += 10
-
-    if jawab10 == "SO₄²⁻":
-        skor += 10
-        st.session_state.skor = skor
-
-# tampilkan skor kalau sudah dihitung
-if "skor" in st.session_state:
-    st.success(f"Skor Anda: {st.session_state.skor}/100")
-    if st.session_state.skor >= 80:
-        st.balloons()
-        st.write("🎉 Sangat Baik! Pemahaman Anda sudah sangat baik.")
-    elif st.session_state.skor >= 60:
-        st.write("👍 Baik! Tetap semangat belajar.")
-    else:
-        st.write("📚 Perlu belajar lagi agar lebih memahami materi.")
 
