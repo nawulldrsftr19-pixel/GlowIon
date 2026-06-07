@@ -58,7 +58,7 @@ st.markdown(""" ... """, unsafe_allow_html=True)
 
 
 #--- CSS untuk judul ---
-st.title ("LABKIM — Analisis Kualitatif Kation DAN Anion (Metode Sentrifugasi) dan uji spesifik")
+st.title ("GlowIon — Analisis Kualitatif Kation DAN Anion (Metode Sentrifugasi) dan uji spesifik")
 # --- Judul dengan tab warna + efek hover glow ---
 st.markdown("""
 <style>
@@ -92,10 +92,10 @@ st.markdown("""
 </style>
 
 <div class="title-tabs">
-    <div class="title-tab tab1">LABKIM</div>
-    <div class="title-tab tab2">ANALISIS</div>
-    <div class="title-tab tab3">KUALITATIF KATION</div>
-    <div class="title-tab tab4">DAN ANION</div>
+    <div class="title-tab tab1">semoga</div>
+    <div class="title-tab tab2">membantu</div>
+    <div class="title-tab tab3">dalam</div>
+    <div class="title-tab tab4">analisis</div>
 </div>
 """, unsafe_allow_html=True)
 st.set_page_config(page_title="Virtual Lab: Analisis Kualitatif", layout="wide")
