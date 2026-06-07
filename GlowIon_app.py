@@ -291,8 +291,8 @@ with tab2:
                 </style>
                 """, unsafe_allow_html=True)
         
-        # Tab menu untuk tiap kation
-        tab_ag, tab_pb, tab_hg = st.tabs(["Ag⁺", "Pb²⁺", "Hg₂²⁺"])
+    # Tab menu untuk tiap kation
+    tab_ag, tab_pb, tab_hg = st.tabs(["Ag⁺", "Pb²⁺", "Hg₂²⁺"])
         
         with tab_ag:
             st.subheader("Ag⁺ + K₂CrO₄")
