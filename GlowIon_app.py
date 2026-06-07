@@ -105,9 +105,9 @@ st.set_page_config(page_title="Virtual Lab: Analisis Kualitatif", layout="wide")
 st.markdown("""
 <style>
     .stApp {
-        background: linear-gradient(135deg, #fce4ec, #e3f2fd, #e8f5e9);
-        background-size: 400% 400%;
-        animation: bgmove 15s infinite alternate;
+    background: linear-gradient(135deg, #fce4ec, #e3f2fd, #e8f5e9);
+    background-size: 400% 400%;
+    animation: bgmove 15s infinite alternate;
     }
     @keyframes bgmove { 0% {background-position: left;} 100% {background-position: right;} }
     
