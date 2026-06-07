@@ -58,7 +58,7 @@ st.markdown(""" ... """, unsafe_allow_html=True)
 
 
 #--- CSS untuk judul ---
-st.title ("GlowIon — Analisis Kualitatif Kation DAN Anion (Metode Sentrifugasi) dan uji spesifik")
+st.title ("GlowIon — Analisis Kualitatif Kation dan Anion (Metode Sentrifugasi)")
 # --- Judul dengan tab warna + efek hover glow ---
 st.markdown("""
 <style>
@@ -197,7 +197,7 @@ tab1, tab2, tab3, tab4 = st.tabs([
     "🧪 Analisis Anion", 
     "📝 Kuis Kation & Anion"])
 
-# --- TAB 1: BAGAN (tetap ada, jangan diubah) ---
+# --- TAB 1: BAGAN ---
 with tab1:
     st.subheader("📊 Bagan Pemisahan Kation")
     if 'langkah' not in st.session_state:
@@ -237,7 +237,7 @@ with tab1:
     if st.button("🔄 Reset"):
         st.session_state.langkah=0; st.rerun()
 
-# --- TAB 2: ANALISIS KATION (dengan animasi) ---
+# --- TAB 2: ANALISIS KATION ---
 with tab2:
     st.subheader("🛠️ Analisis Kation")
     gol = st.selectbox("Pilih Golongan:",["Golongan I","Golongan III","Golongan IV"])
@@ -277,7 +277,7 @@ with tab2:
         flame_viz("#ff4500"); st.write("Nyala merah bata")
         st.latex(r"Ca^{2+} + C_2O_4^{2-} \rightarrow CaC_2O_4 (Putih)")
 
-# --- TAB 3: ANALISIS ANION (lengkap + animasi gelembung) ---
+# --- TAB 3: ANALISIS ANION ---
 with tab3:
     st.subheader("📝 Analisis Anion")
     anion = st.selectbox("Pilih Anion:",["Klorida (Cl⁻)","Iodida (I⁻)","Karbonat (CO₃²⁻)","Sulfat (SO₄²⁻)"])
