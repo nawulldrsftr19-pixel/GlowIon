@@ -98,15 +98,6 @@ def tube_viz(liq_color, p_color=None, p_height=0):
 def flame_viz(color):
     st.markdown(f'<div class="flame" style="background:{color}; box-shadow:0 0 20px {color};"></div>', unsafe_allow_html=True)
 
-def centrifuge_action():
-    placeholder = st.empty()
-    with placeholder.container():
-        st.markdown('<div class="spin-icon"></div>', unsafe_allow_html=True)
-        st.write("🌀 Memutar pada 3000 rpm...")
-        time.sleep(2)
-    placeholder.empty()
-    st.success("✅ Pemisahan selesai!")
-
 # --- 1. KONFIGURASI HALAMAN (HARUS DI BARIS PERTAMA) ---
 st.set_page_config(page_title="Virtual Lab: Analisis Kualitatif", layout="wide")
 
