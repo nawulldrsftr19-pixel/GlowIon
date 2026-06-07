@@ -270,15 +270,15 @@ st.title("⚗️ Reaksi Kation Golongan I")
 
 tab1, tab2 = st.tabs(["K₂CrO₄", "NH₄OH Berlebih"])
 
-    with tab1:
-        st.subheader("Pb²⁺ + K₂CrO₄")
-        st.latex(r"Pb^{2+} + CrO_4^{2-} \rightarrow PbCrO_4(s) \downarrow")
-        tube_viz("lightblue","yellow")  # endapan kuning PbCrO₄
+        with tab1:
+            st.subheader("Pb²⁺ + K₂CrO₄")
+            st.latex(r"Pb^{2+} + CrO_4^{2-} \rightarrow PbCrO_4(s) \downarrow")
+            tube_viz("lightblue","yellow")  # endapan kuning PbCrO₄
 
-    with tab2:
-        st.subheader("AgCl + NH₄OH")
-        st.latex(r"AgCl(s) + 2NH_3 \rightarrow [Ag(NH_3)_2]^+ + Cl^-")
-        tube_viz("lightblue","white")  # endapan putih AgCl larut
+        with tab2:
+            st.subheader("AgCl + NH₄OH")
+            st.latex(r"AgCl(s) + 2NH_3 \rightarrow [Ag(NH_3)_2]^+ + Cl^-")
+            tube_viz("lightblue","white")  # endapan putih AgCl larut
 
     elif gol=="Golongan III":
         st.info("Uji dengan NH₄OH → endapan Fe(OH)₃ & Al(OH)₃.")
