@@ -55,8 +55,6 @@ button:hover {
 # --- CSS untuk animasi (spinner, flame, tube) ---
 st.markdown(""" ... """, unsafe_allow_html=True)
 
-
-
 #--- CSS untuk judul ---
 st.title ("GlowIon — Analisis Kualitatif Kation dan Anion (Metode Sentrifugasi)")
 # --- Judul dengan tab warna + efek hover glow ---
@@ -197,7 +195,7 @@ tab1, tab2, tab3, tab4 = st.tabs([
     "🧪 Analisis Anion", 
     "📝 Kuis Kation & Anion"])
 
-# --- TAB 1: BAGAN ---
+# --- TAB 1: BAGAN (tetap ada, jangan diubah) ---
 with tab1:
     st.subheader("📊 Bagan Pemisahan Kation")
     if 'langkah' not in st.session_state:
@@ -237,7 +235,7 @@ with tab1:
     if st.button("🔄 Reset"):
         st.session_state.langkah=0; st.rerun()
 
-# --- TAB 2: ANALISIS KATION ---
+# --- TAB 2: ANALISIS KATION (dengan animasi) ---
 with tab2:
     st.subheader("🛠️ Analisis Kation")
     gol = st.selectbox("Pilih Golongan:",["Golongan I","Golongan III","Golongan IV"])
@@ -250,15 +248,14 @@ with tab2:
             st.latex(r"Ag^+ + Cl^- \rightarrow AgCl(s) \downarrow \text{ (Putih)}")
             st.latex(r"Pb^{2+} + 2Cl^- \rightarrow PbCl_2(s) \downarrow \text{ (Putih)}")
             st.latex(r"Hg_2^{2+} + 2Cl^- \rightarrow Hg_2Cl_2(s) \downarrow \text{ (Putih)}")
-            
-
-# Animasi sentrifugasi
-centrifuge_action()
         
-# Visual tabung dengan endapan putih
-tube_viz("lightblue","white",40)
+        # Animasi sentrifugasi
+        centrifuge_action()
+        
+        # Visual tabung dengan endapan putih
+        tube_viz("lightblue","white",40)
 
-     elif gol=="Golongan III":
+    elif gol=="Golongan III":
         st.info("Uji dengan NH₄OH → endapan Fe(OH)₃ & Al(OH)₃.")
         if st.button("Uji Fe³⁺"):
             st.latex(r"Fe^{3+} + 3SCN^- \rightarrow Fe(SCN)_3 (Merah)")
@@ -278,7 +275,43 @@ tube_viz("lightblue","white",40)
         flame_viz("#ff4500"); st.write("Nyala merah bata")
         st.latex(r"Ca^{2+} + C_2O_4^{2-} \rightarrow CaC_2O_4 (Putih)")
 
-# --- TAB 3: ANALISIS ANION ---
+st.title("⚗️ Uji Spesifik Kation Golongan I")
+
+# Tab menu untuk tiap kation
+tab_ag, tab_pb, tab_hg = st.tabs(["Ag⁺", "Pb²⁺", "Hg₂²⁺"])
+
+# ─── Ag⁺ ───────────────────────────────
+with tab_ag:
+    st.subheader("Uji Ag⁺ dengan K₂CrO₄")
+    st.info("Ag⁺ + K₂CrO₄ → Ag₂CrO₄ (endapan merah bata, sedikit larut).")
+    st.markdown("Visualisasi:")
+    st.markdown("🧪 Tabung dengan endapan **merah bata** di dasar.")
+
+    st.subheader("Uji Ag⁺ dengan NH₄OH berlebih")
+    st.success("AgCl larut membentuk kompleks [Ag(NH₃)₂]⁺.")
+    st.markdown("🧪 Tabung awal putih → larut, menjadi jernih.")
+
+# ─── Pb²⁺ ───────────────────────────────
+with tab_pb:
+    st.subheader("Uji Pb²⁺ dengan K₂CrO₄")
+    st.success("Pb²⁺ + K₂CrO₄ → PbCrO₄ (endapan kuning).")
+    st.markdown("🧪 Tabung dengan endapan **kuning cerah** di dasar.")
+
+    st.subheader("Uji Pb²⁺ dengan NH₄OH berlebih")
+    st.info("Pb²⁺ → Pb(OH)₂ endapan putih, sedikit larut dalam NH₄OH berlebih.")
+    st.markdown("🧪 Tabung dengan endapan **putih** agak berkurang.")
+
+# ─── Hg₂²⁺ ───────────────────────────────
+with tab_hg:
+    st.subheader("Uji Hg₂²⁺ dengan K₂CrO₄")
+    st.warning("Hg₂²⁺ + K₂CrO₄ → Hg₂CrO₄ (endapan merah).")
+    st.markdown("🧪 Tabung dengan endapan **merah** di dasar.")
+
+    st.subheader("Uji Hg₂²⁺ dengan NH₄OH berlebih")
+    st.error("Hg₂Cl₂ + NH₄OH → campuran Hg (hitam) + Hg(NH₂)Cl (putih).")
+    st.markdown("🧪 Tabung dengan endapan **hitam + putih bercampur**.")
+
+# --- TAB 3: ANALISIS ANION (lengkap + animasi gelembung) ---
 with tab3:
     st.subheader("📝 Analisis Anion")
     anion = st.selectbox("Pilih Anion:",["Klorida (Cl⁻)","Iodida (I⁻)","Karbonat (CO₃²⁻)","Sulfat (SO₄²⁻)"])
