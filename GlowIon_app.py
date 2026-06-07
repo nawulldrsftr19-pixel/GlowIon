@@ -275,7 +275,7 @@ with tab2:
     # Tab menu untuk tiap kation
     tab_ag, tab_pb, tab_hg = st.tabs(["Ag⁺", "Pb²⁺", "Hg₂²⁺"])
 
-with tab2_ag:
+with tab_ag:
     st.subheader("Ag⁺ + K₂CrO₄")
     st.info("Ag⁺ + K₂CrO₄ → Ag₂CrO₄ (endapan merah bata).")
     tube_viz("lightblue", "orange")
@@ -284,7 +284,7 @@ with tab2_ag:
     st.success("AgCl larut membentuk kompleks [Ag(NH₃)₂]⁺.")
     tube_viz("lightblue", "white", dissolve=True)
 
-with tab2_pb:
+with tab_pb:
     st.subheader("Pb²⁺ + K₂CrO₄")
     st.success("Pb²⁺ + K₂CrO₄ → PbCrO₄ (endapan kuning).")
     tube_viz("lightblue", "yellow")
@@ -293,7 +293,7 @@ with tab2_pb:
     st.info("Pb²⁺ → Pb(OH)₂ endapan putih, sedikit larut.")
     tube_viz("lightblue", "white")
 
-with tab2_hg:
+with tab_hg:
     st.subheader("Hg₂²⁺ + K₂CrO₄")
     st.warning("Hg₂²⁺ + K₂CrO₄ → Hg₂CrO₄ (endapan merah).")
     tube_viz("lightblue", "red")
