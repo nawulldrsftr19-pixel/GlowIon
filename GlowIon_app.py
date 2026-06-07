@@ -254,7 +254,8 @@ with tab2:
         
         # Visual tabung dengan endapan putih
         tube_viz("lightblue","white",40)
-            import streamlit as st
+        
+    import streamlit as st
 
         st.title("📄 — Uji Spesifik Kation Golongan I")
         
