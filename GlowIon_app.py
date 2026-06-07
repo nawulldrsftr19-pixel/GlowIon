@@ -295,7 +295,7 @@ centrifuge_action()
 # Visual tabung dengan endapan putih
 tube_viz("lightblue","white",40)
 
-    elif gol=="Golongan III":
+ elif gol=="Golongan III":
         st.info("Uji dengan NH₄OH → endapan Fe(OH)₃ & Al(OH)₃.")
         if st.button("Uji Fe³⁺"):
             st.latex(r"Fe^{3+} + 3SCN^- \rightarrow Fe(SCN)_3 (Merah)")
