@@ -175,7 +175,7 @@ with tab3:
         """, unsafe_allow_html=True)
         
     elif anion=="Sulfat (SO₄²⁻)":
-        st.latex(r"SO_4^{2-} + BaCl_2 \\rightarrow BaSO_4(s) \\downarrow \quad \text{(Endapan putih, tidak larut dalam asam)}")
+        st.latex(r"SO_4^{2-} + BaCl_2 = BaSO_4(s) \quad \text{(Endapan putih, tidak larut dalam asam)}")
         tube_viz("lightblue","white",35)
 
 
