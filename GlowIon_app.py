@@ -257,7 +257,7 @@ with tab2:
         
     import streamlit as st
 
-        st.title("📄 — Uji Spesifik Kation Golongan I")
+    st.title("📄 — Uji Spesifik Kation Golongan I")
         
         # Fungsi tabung dengan animasi lebih nyata
         def tube_viz(liquid_color, precipitate_color, dissolve=False, height=140):
