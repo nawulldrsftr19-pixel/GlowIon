@@ -89,22 +89,6 @@ st.markdown("""
     background: linear-gradient(45deg, #ffeb3b, #ff4081);
     box-shadow: 0 0 20px #ff4081;
 }
-# --- CSS untuk animasi ---
-st.markdown("""
-<style>
-.spin-icon {
-    border: 8px solid #f3f3f3; border-top: 8px solid #1565c0;
-    border-radius: 50%; width: 50px; height: 50px;
-    animation: spin 1s linear infinite; margin: 10px auto;
-}
-@keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
-.flame { width:35px; height:35px; border-radius:50%; margin:10px; }
-.tube { width:55px; height:160px; border:2px solid #333; border-radius:0 0 30px 30px;
-        position:relative; background:rgba(255,255,255,0.4); overflow:hidden; margin:10px;}
-.liquid { position:absolute; bottom:0; width:100%; opacity:0.6;}
-.pellet { position:absolute; bottom:0; width:100%; border-radius:0 0 27px 27px;}
-</style>
-""", unsafe_allow_html=True)
 
 # --- Fungsi visual ---
 def tube_viz(liq_color, p_color=None, p_height=0):
