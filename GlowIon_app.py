@@ -258,7 +258,7 @@ with tab2:
         tube_viz("lightblue","white",40)
 
     def tube_viz(liquid_color, precipitate_color, height=120):
-    st.markdown(f"""
+        st.markdown(f"""
     <div style="width:60px;height:{height}px;background:{liquid_color};
                 border-radius:10px;position:relative;margin:20px auto;">
         <div style="width:60px;height:30px;background:{precipitate_color};
