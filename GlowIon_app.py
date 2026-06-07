@@ -237,6 +237,25 @@ with tab1:
 
 # --- TAB 2: ANALISIS KATION (dengan animasi) ---
 with tab2:
+    st.subheader("🛠️ Analisis Kation")
+    gol = st.selectbox("Pilih Golongan:",["Golongan I","Golongan III","Golongan IV"])
+
+    if gol=="Golongan I":
+        st.info("Uji dengan HCl encer → endapan AgCl, PbCl₂, Hg₂Cl₂.")
+        
+        if st.button("Jalankan Uji Gol I"):
+            # Reaksi kation Golongan I
+            st.latex(r"Ag^+ + Cl^- \rightarrow AgCl(s) \downarrow \text{ (Putih)}")
+            st.latex(r"Pb^{2+} + 2Cl^- \rightarrow PbCl_2(s) \downarrow \text{ (Putih)}")
+            st.latex(r"Hg_2^{2+} + 2Cl^- \rightarrow Hg_2Cl_2(s) \downarrow \text{ (Putih)}")
+        
+        # Animasi sentrifugasi
+        centrifuge_action()
+        
+        # Visual tabung dengan endapan putih
+        tube_viz("lightblue","white",40)
+        
+with tab2:
     st.title("📄— Uji Spesifik Kation Golongan I")
 
 # Fungsi tabung dengan animasi lebih nyata
@@ -302,24 +321,6 @@ with tab_hg:
     st.error("Hg₂Cl₂ + NH₄OH → campuran Hg (hitam) + Hg(NH₂)Cl (putih).")
     tube_viz("lightblue", "gray")
 
-with tab2:
-    st.subheader("🛠️ Analisis Kation")
-    gol = st.selectbox("Pilih Golongan:",["Golongan I","Golongan III","Golongan IV"])
-
-    if gol=="Golongan I":
-        st.info("Uji dengan HCl encer → endapan AgCl, PbCl₂, Hg₂Cl₂.")
-        
-        if st.button("Jalankan Uji Gol I"):
-            # Reaksi kation Golongan I
-            st.latex(r"Ag^+ + Cl^- \rightarrow AgCl(s) \downarrow \text{ (Putih)}")
-            st.latex(r"Pb^{2+} + 2Cl^- \rightarrow PbCl_2(s) \downarrow \text{ (Putih)}")
-            st.latex(r"Hg_2^{2+} + 2Cl^- \rightarrow Hg_2Cl_2(s) \downarrow \text{ (Putih)}")
-        
-        # Animasi sentrifugasi
-        centrifuge_action()
-        
-        # Visual tabung dengan endapan putih
-        tube_viz("lightblue","white",40)
         
     elif gol=="Golongan III":
         st.info("Uji dengan NH₄OH → endapan Fe(OH)₃ & Al(OH)₃.")
