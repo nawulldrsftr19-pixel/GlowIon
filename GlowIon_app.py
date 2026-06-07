@@ -173,8 +173,8 @@ with tab3:
             <div class="bubble"></div>
         </div>
         """, unsafe_allow_html=True)
-
-    elif anion=="Sulfat (SO₄²⁻)":
+        
+elif anion=="Sulfat (SO₄²⁻)":
         st.latex(r"SO_4^{2-} + BaCl_2 \rightarrow BaSO_4(s) \downarrow + 2Cl^-")
         st.write("Uji: terbentuk endapan putih BaSO₄ yang tidak larut dalam asam.")
         tube_viz("lightblue","white",35)
