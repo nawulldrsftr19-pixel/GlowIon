@@ -152,18 +152,89 @@ with tab3:
     elif anion == "Iodida (I⁻)":
         st.latex(r"2I^- + HgCl_2 \rightarrow HgI_2(s) \downarrow \text{ (Merah)} [10]")
         tube_viz("yellow", "red")
-    elif anion == "Karbonat (CO₃²⁻)":
-        st.latex(r"CO_3^{2-} + 2HCl \rightarrow CO_2(g) \uparrow + H_2O [10]")
-        st.write("💨 Terbentuk gelembung gas CO₂.")
-        st.markdown('<div class="bubble-container"><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div></div>', unsafe_allow_html=True)
-    elif anion == "Sulfat (SO₄²⁻)":
-        st.latex(r"SO_4^{2-} + BaCl_2 \rightarrow BaSO_4(s) \downarrow [12]")
-        tube_viz("lightblue", "white")
+    elif anion=="Karbonat (CO₃²⁻)":
+        st.latex(r"CO_3^{2-} + 2HCl \rightarrow CO_2(g) \uparrow + H_2O")
+        st.write("Uji: terbentuk gelembung gas CO₂ yang keluar dari larutan.")
+        # animasi gelembung
+        st.markdown("""
+         <style>
+        .bubble-container {position:relative;width:100px;height:150px;background:#e0f7fa;border-radius:10px;margin:10px;}
+        .bubble {position:absolute;bottom:0;width:20px;height:20px;border-radius:50%;background:#80deea;animation: rise 3s infinite;}
+        .bubble:nth-child(2){left:30px;animation-delay:1s;}
+        .bubble:nth-child(3){left:60px;animation-delay:2s;}
+        @keyframes rise {
+            0% {bottom:0;opacity:1;}
+            100% {bottom:130px;opacity:0;}
+        }
+        </style>
+        <div class="bubble-container">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+        """, unsafe_allow_html=True)
 
-# --- TAB 4: KUIS [25-29] ---
+     elif anion=="Sulfat (SO₄²⁻)":
+        st.latex(r"SO_4^{2-} + BaCl_2 \rightarrow BaSO_4(s) \downarrow + 2Cl^-")
+        st.write("Uji: terbentuk endapan putih BaSO₄ yang tidak larut dalam asam.")
+        tube_viz("lightblue","white",35)
+
+# --- TAB 4: KUIS ---
 with tab4:
-    st.subheader("📝 Uji Pemahaman")
-    q1 = st.radio("1. Pereaksi untuk mengendapkan kation Golongan I?", ["NH₄OH", "HCl", "BaCl₂"], index=None)
-    if st.button("Kirim Jawaban"):
-        if q1 == "HCl": st.success("Benar! (Skor: 100)"); st.balloons()
-        else: st.error("Coba lagi!")
+    st.subheader("📝 Kuis Kation dan Anion")
+
+    skor = 0
+
+    jawab1 = st.radio("1. Pereaksi yang digunakan untuk mengendapkan kation golongan I adalah ...",
+                      ["NH₄OH", "HCl", "BaCl₂", "H₂SO₄"], index=None, key="s1")
+
+    jawab2 = st.radio("2. Ion yang termasuk golongan I adalah ...",
+                      ["Fe³⁺", "Ag⁺", "Ba²⁺", "Ca²⁺"], index=None, key="s2")
+
+    jawab3 = st.radio("3. Endapan AgCl berwarna ...",
+                      ["Merah", "Kuning", "Putih", "Hijau"], index=None, key="s3")
+
+    jawab4 = st.radio("4. Kation Al³⁺ termasuk golongan ...",
+                      ["I", "II", "III", "V"], index=None, key="s4")
+
+    jawab5 = st.radio("5. Pereaksi yang digunakan untuk mengendapkan Al³⁺ dan Fe³⁺ adalah ...",
+                      ["NH₄OH", "HCl", "BaCl₂", "KI"], index=None, key="s5")
+
+    jawab6 = st.radio("6. Kation yang termasuk golongan V adalah ...",
+                      ["Ag⁺", "Pb²⁺", "Ca²⁺", "Fe³⁺"], index=None, key="s6")
+
+    jawab7 = st.radio("7. Pereaksi untuk identifikasi ion klorida (Cl⁻) adalah ...",
+                      ["AgNO₃", "NaOH", "NH₄OH", "K₂CrO₄"], index=None, key="s7")
+
+    jawab8 = st.radio("8. Anion yang menghasilkan gas CO₂ saat direaksikan dengan asam adalah ...",
+                      ["Cl⁻", "I⁻", "CO₃²⁻", "SO₄²⁻"], index=None, key="s8")
+
+    jawab9 = st.radio("9. Pereaksi untuk identifikasi ion sulfat adalah ...",
+                      ["AgNO₃", "BaCl₂", "KI", "NH₄OH"], index=None, key="s9")
+
+    jawab10 = st.radio("10. Ion yang menghasilkan endapan putih dengan BaCl₂ adalah ...",
+                       ["SO₄²⁻", "Cl⁻", "I⁻", "NO₃⁻"], index=None, key="s10")
+
+    if st.button("Lihat Hasil"):
+        if jawab1 == "HCl": skor += 10
+        if jawab2 == "Ag⁺": skor += 10
+        if jawab3 == "Putih": skor += 10
+        if jawab4 == "III": skor += 10
+        if jawab5 == "NH₄OH": skor += 10
+        if jawab6 == "Ca²⁺": skor += 10
+        if jawab7 == "AgNO₃": skor += 10
+        if jawab8 == "CO₃²⁻": skor += 10
+        if jawab9 == "BaCl₂": skor += 10
+        if jawab10 == "SO₄²⁻": skor += 10
+
+        st.success(f"Skor Anda: {skor}/100")
+
+        if skor >= 80:
+            st.balloons()
+            st.write("🎉 Sangat Baik! Pemahaman Anda sudah sangat baik.")
+        elif skor >= 60:
+            st.write("👍 Baik! Tetap semangat belajar.")
+        else:
+            st.write("📚 Perlu belajar lagi agar lebih memahami materi.")
+
+
