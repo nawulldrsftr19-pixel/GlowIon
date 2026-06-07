@@ -257,6 +257,29 @@ with tab2:
         # Visual tabung dengan endapan putih
         tube_viz("lightblue","white",40)
 
+def tube_viz(liquid_color, precipitate_color, height=120):
+    st.markdown(f"""
+    <div style="width:60px;height:{height}px;background:{liquid_color};
+                border-radius:10px;position:relative;margin:20px auto;">
+        <div style="width:60px;height:30px;background:{precipitate_color};
+                    position:absolute;bottom:0;border-radius:0 0 10px 10px;"></div>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.title("⚗️ Reaksi Kation Golongan I")
+
+tab1, tab2 = st.tabs(["K₂CrO₄", "NH₄OH Berlebih"])
+
+with tab1:
+    st.subheader("Pb²⁺ + K₂CrO₄")
+    st.latex(r"Pb^{2+} + CrO_4^{2-} \rightarrow PbCrO_4(s) \downarrow")
+    tube_viz("lightblue","yellow")  # endapan kuning PbCrO₄
+
+with tab2:
+    st.subheader("AgCl + NH₄OH")
+    st.latex(r"AgCl(s) + 2NH_3 \rightarrow [Ag(NH_3)_2]^+ + Cl^-")
+    tube_viz("lightblue","white")  # endapan putih AgCl larut
+
     elif gol=="Golongan III":
         st.info("Uji dengan NH₄OH → endapan Fe(OH)₃ & Al(OH)₃.")
         if st.button("Uji Fe³⁺"):
