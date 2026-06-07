@@ -270,7 +270,7 @@ def tube_viz(liquid_color, precipitate_color, dissolve=False, height=140):
             }}
         </style>
         """, unsafe_allow_html=True)
-
+with tab2:
 # Tab menu untuk tiap kation
 tab_ag, tab_pb, tab_hg = st.tabs(["Ag⁺", "Pb²⁺", "Hg₂²⁺"])
 
