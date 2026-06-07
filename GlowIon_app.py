@@ -2,6 +2,84 @@ import streamlit as st
 import time
 import graphviz
 
+#--- CSS untuk judul ---
+st.title ("LABKIM — Analisis Kualitatif Kation DAN Anion (Metode Sentrifugasi) dan uji spesifik")
+# --- Judul dengan tab warna + efek hover glow ---
+st.markdown("""
+<style>
+.title-tabs {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+.title-tab {
+    padding: 14px 24px;
+    border-radius: 12px 12px 0 0;
+    margin: 0 6px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+.tab1 { background: #42a5f5; }   /* biru */
+.tab2 { background: #ef5350; }   /* merah */
+.tab3 { background: #66bb6a; }   /* hijau */
+.tab4 { background: #ab47bc; }   /* ungu */
+
+/* Efek hover glow */
+.title-tab:hover {
+    transform: translateY(-6px) scale(1.08);
+    background: linear-gradient(45deg, #ffeb3b, #ff4081);
+    box-shadow: 0 0 20px #ff4081;
+}
+</style>
+
+<div class="title-tabs">
+    <div class="title-tab tab1">LABKIM</div>
+    <div class="title-tab tab2">ANALISIS</div>
+    <div class="title-tab tab3">KUALITATIF KATION</div>
+    <div class="title-tab tab4">DAN ANION</div>
+</div>
+""", unsafe_allow_html=True)
+st.set_page_config(page_title="Virtual Lab: Analisis Kualitatif", layout="wide")
+
+# --- CSS untuk animasi ---
+st.markdown("""
+<style>
+.spin-icon {
+    border: 8px solid #f3f3f3; border-top: 8px solid #1565c0;
+    border-radius: 50%; width: 50px; height: 50px;
+    animation: spin 1s linear infinite; margin: 10px auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
+.flame { width:35px; height:35px; border-radius:50%; margin:10px; }
+.tube { width:55px; height:160px; border:2px solid #333; border-radius:0 0 30px 30px;
+        position:relative; background:rgba(255,255,255,0.4); overflow:hidden; margin:10px;}
+.liquid { position:absolute; bottom:0; width:100%; opacity:0.6;}
+.pellet { position:absolute; bottom:0; width:100%; border-radius:0 0 27px 27px;}
+</style>
+""", unsafe_allow_html=True)
+
+# --- Fungsi visual ---
+def tube_viz(liq_color, p_color=None, p_height=0):
+    p_html = f'<div class="pellet" style="height:{p_height}px; background:{p_color};"></div>' if p_color else ""
+    st.markdown(f'<div class="tube"><div class="liquid" style="height:75%; background:{liq_color};"></div>{p_html}</div>', unsafe_allow_html=True)
+
+def flame_viz(color):
+    st.markdown(f'<div class="flame" style="background:{color}; box-shadow:0 0 20px {color};"></div>', unsafe_allow_html=True)
+
+def centrifuge_action():
+    placeholder = st.empty()
+    with placeholder.container():
+        st.markdown('<div class="spin-icon"></div>', unsafe_allow_html=True)
+        st.write("🌀 Memutar pada 3000 rpm...")
+        time.sleep(2)
+    placeholder.empty()
+    st.success("✅ Pemisahan selesai!")
+
+
 # --- 1. KONFIGURASI HALAMAN (HARUS DI BARIS PERTAMA) ---
 st.set_page_config(page_title="Virtual Lab: Analisis Kualitatif", layout="wide")
 
