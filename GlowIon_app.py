@@ -257,28 +257,57 @@ with tab2:
         # Visual tabung dengan endapan putih
         tube_viz("lightblue","white",40)
 
-    def tube_viz(liquid_color, precipitate_color, height=120):
-        st.markdown(f"""
+    st.set_page_config(page_title="Reaksi Kation Golongan I", page_icon="⚗️", layout="wide")
+
+st.title("🧪 Tampilan Reaksi Kation Golongan I")
+st.write("Simulasi reaksi Ag⁺, Pb²⁺, Hg₂²⁺ dengan K₂CrO₄ dan NH₄OH berlebih.")
+
+# Fungsi visual tabung reaksi
+def tube_viz(liquid_color, precipitate_color, height=120):
+    st.markdown(f"""
     <div style="width:60px;height:{height}px;background:{liquid_color};
                 border-radius:10px;position:relative;margin:20px auto;">
         <div style="width:60px;height:30px;background:{precipitate_color};
-                    position:absolute;bottom:0;border-radius:0 0 10px 10px;"></div>
+                    position:absolute;bottom:0;border-radius:0 0 10px 10px;
+                    animation: turun 2s ease-in-out;"></div>
     </div>
+    <style>
+        @keyframes turun {{
+            0% {{ bottom:100px; opacity:0; }}
+            100% {{ bottom:0; opacity:1; }}
+        }}
+    </style>
     """, unsafe_allow_html=True)
 
-st.title("⚗️ Reaksi Kation Golongan I")
+# Tab menu
+tab_k2cro4, tab_nh4oh = st.tabs(["Reaksi dengan K₂CrO₄", "Reaksi dengan NH₄OH Berlebih"])
 
-tab1, tab2 = st.tabs(["K₂CrO₄", "NH₄OH Berlebih"])
+with tab_k2cro4:
+    st.header("Kation Golongan I + K₂CrO₄")
+    with st.expander("Pb²⁺ + K₂CrO₄"):
+        st.success("Terbentuk endapan kuning PbCrO₄.")
+        tube_viz("lightblue", "yellow")
+    with st.expander("Ag⁺ + K₂CrO₄"):
+        st.info("Tidak terbentuk endapan khas, AgCrO₄ sedikit larut.")
+        tube_viz("lightblue", "orange")
+    with st.expander("Hg₂²⁺ + K₂CrO₄"):
+        st.warning("Terbentuk endapan merah Hg₂CrO₄.")
+        tube_viz("lightblue", "red")
 
-        with tab1:
-            st.subheader("Pb²⁺ + K₂CrO₄")
-            st.latex(r"Pb^{2+} + CrO_4^{2-} \rightarrow PbCrO_4(s) \downarrow")
-            tube_viz("lightblue","yellow")  # endapan kuning PbCrO₄
+with tab_nh4oh:
+    st.header("Kation Golongan I + NH₄OH Berlebih")
+    with st.expander("AgCl + NH₄OH"):
+        st.success("AgCl larut membentuk kompleks [Ag(NH₃)₂]⁺.")
+        tube_viz("lightblue", "white")
+    with st.expander("PbCl₂ + NH₄OH"):
+        st.info("Pb(OH)₂ endapan putih, sedikit larut dalam NH₄OH berlebih.")
+        tube_viz("lightblue", "white")
+    with st.expander("Hg₂Cl₂ + NH₄OH"):
+        st.warning("Terbentuk campuran Hg (hitam) + Hg(NH₂)Cl (putih).")
+        tube_viz("lightblue", "gray")
 
-        with tab2:
-            st.subheader("AgCl + NH₄OH")
-            st.latex(r"AgCl(s) + 2NH_3 \rightarrow [Ag(NH_3)_2]^+ + Cl^-")
-            tube_viz("lightblue","white")  # endapan putih AgCl larut
+st.markdown("---")
+st.success("💡 Animasi ini menunjukkan pembentukan endapan sesuai reaksi kation Golongan I.")
 
     elif gol=="Golongan III":
         st.info("Uji dengan NH₄OH → endapan Fe(OH)₃ & Al(OH)₃.")
