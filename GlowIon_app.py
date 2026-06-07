@@ -236,9 +236,8 @@ with tab1:
         st.session_state.langkah=0; st.rerun()
 
 # --- TAB 2: ANALISIS KATION (dengan animasi) ---
-
 with tab2:
-st.title("📄— Uji Spesifik Kation Golongan I")
+    st.title("📄— Uji Spesifik Kation Golongan I")
 
 # Fungsi tabung dengan animasi lebih nyata
 def tube_viz(liquid_color, precipitate_color, dissolve=False, height=140):
