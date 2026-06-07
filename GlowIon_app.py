@@ -289,11 +289,11 @@ with tab_hg:
     st.error("Hg₂Cl₂ + NH₄OH → campuran Hg (hitam) + Hg(NH₂)Cl (putih).")
     st.markdown("🧪 Tabung dengan endapan **hitam + putih bercampur**.")
   
-        # Animasi sentrifugasi
-        centrifuge_action()
+# Animasi sentrifugasi
+centrifuge_action()
         
-        # Visual tabung dengan endapan putih
-        tube_viz("lightblue","white",40)
+# Visual tabung dengan endapan putih
+tube_viz("lightblue","white",40)
 
     elif gol=="Golongan III":
         st.info("Uji dengan NH₄OH → endapan Fe(OH)₃ & Al(OH)₃.")
