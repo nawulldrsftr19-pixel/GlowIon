@@ -306,9 +306,6 @@ with tab_nh4oh:
         st.warning("Terbentuk campuran Hg (hitam) + Hg(NH₂)Cl (putih).")
         tube_viz("lightblue", "gray")
 
-st.markdown("---")
-st.success("💡 Animasi ini menunjukkan pembentukan endapan sesuai reaksi kation Golongan I.")
-
     elif gol=="Golongan III":
         st.info("Uji dengan NH₄OH → endapan Fe(OH)₃ & Al(OH)₃.")
         if st.button("Uji Fe³⁺"):
