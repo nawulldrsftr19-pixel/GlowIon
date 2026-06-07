@@ -58,7 +58,7 @@ st.markdown(""" ... """, unsafe_allow_html=True)
 
 
 #--- CSS untuk judul ---
-st.title ("GlowIon — Analisis Kualitatif Kation DAN Anion (Metode Sentrifugasi) dan uji spesifik")
+st.title ("LABKIM — Analisis Kualitatif Kation DAN Anion (Metode Sentrifugasi) dan uji spesifik")
 # --- Judul dengan tab warna + efek hover glow ---
 st.markdown("""
 <style>
@@ -89,6 +89,33 @@ st.markdown("""
     background: linear-gradient(45deg, #ffeb3b, #ff4081);
     box-shadow: 0 0 20px #ff4081;
 }
+</style>
+
+<div class="title-tabs">
+    <div class="title-tab tab1">LABKIM</div>
+    <div class="title-tab tab2">ANALISIS</div>
+    <div class="title-tab tab3">KUALITATIF KATION</div>
+    <div class="title-tab tab4">DAN ANION</div>
+</div>
+""", unsafe_allow_html=True)
+st.set_page_config(page_title="Virtual Lab: Analisis Kualitatif", layout="wide")
+
+# --- CSS untuk animasi ---
+st.markdown("""
+<style>
+.spin-icon {
+    border: 8px solid #f3f3f3; border-top: 8px solid #1565c0;
+    border-radius: 50%; width: 50px; height: 50px;
+    animation: spin 1s linear infinite; margin: 10px auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
+.flame { width:35px; height:35px; border-radius:50%; margin:10px; }
+.tube { width:55px; height:160px; border:2px solid #333; border-radius:0 0 30px 30px;
+        position:relative; background:rgba(255,255,255,0.4); overflow:hidden; margin:10px;}
+.liquid { position:absolute; bottom:0; width:100%; opacity:0.6;}
+.pellet { position:absolute; bottom:0; width:100%; border-radius:0 0 27px 27px;}
+</style>
+""", unsafe_allow_html=True)
 
 # --- Fungsi visual ---
 def tube_viz(liq_color, p_color=None, p_height=0):
@@ -97,6 +124,15 @@ def tube_viz(liq_color, p_color=None, p_height=0):
 
 def flame_viz(color):
     st.markdown(f'<div class="flame" style="background:{color}; box-shadow:0 0 20px {color};"></div>', unsafe_allow_html=True)
+
+def centrifuge_action():
+    placeholder = st.empty()
+    with placeholder.container():
+        st.markdown('<div class="spin-icon"></div>', unsafe_allow_html=True)
+        st.write("🌀 Memutar pada 3000 rpm...")
+        time.sleep(2)
+    placeholder.empty()
+    st.success("✅ Pemisahan selesai!")
 
 # --- 1. KONFIGURASI HALAMAN (HARUS DI BARIS PERTAMA) ---
 st.set_page_config(page_title="Virtual Lab: Analisis Kualitatif", layout="wide")
