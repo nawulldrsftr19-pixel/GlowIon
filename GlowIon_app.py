@@ -92,7 +92,7 @@ st.markdown("""
 </style>
 
 <div class="title-tabs">
-    <div class="title-tab tab1">LABKIM</div>
+    <div class="title-tab tab1">GlowIon</div>
     <div class="title-tab tab2">ANALISIS</div>
     <div class="title-tab tab3">KUALITATIF KATION</div>
     <div class="title-tab tab4">DAN ANION</div>
@@ -257,74 +257,25 @@ with tab2:
         # Visual tabung dengan endapan putih
         tube_viz("lightblue","white",40)
 
-    st.set_page_config(page_title="Reaksi Kation Golongan I", page_icon="⚗️", layout="wide")
-
-st.title("🧪 Tampilan Reaksi Kation Golongan I")
-st.write("Simulasi reaksi Ag⁺, Pb²⁺, Hg₂²⁺ dengan K₂CrO₄ dan NH₄OH berlebih.")
-
-# Fungsi visual tabung reaksi
-def tube_viz(liquid_color, precipitate_color, height=120):
-    st.markdown(f"""
-    <div style="width:60px;height:{height}px;background:{liquid_color};
-                border-radius:10px;position:relative;margin:20px auto;">
-        <div style="width:60px;height:30px;background:{precipitate_color};
-                    position:absolute;bottom:0;border-radius:0 0 10px 10px;
-                    animation: turun 2s ease-in-out;"></div>
-    </div>
-    <style>
-        @keyframes turun {{
-            0% {{ bottom:100px; opacity:0; }}
-            100% {{ bottom:0; opacity:1; }}
-        }}
-    </style>
-    """, unsafe_allow_html=True)
-
-# Tab menu
-tab_k2cro4, tab_nh4oh = st.tabs(["Reaksi dengan K₂CrO₄", "Reaksi dengan NH₄OH Berlebih"])
-
-with tab_k2cro4:
-    st.header("Kation Golongan I + K₂CrO₄")
-    with st.expander("Pb²⁺ + K₂CrO₄"):
-        st.success("Terbentuk endapan kuning PbCrO₄.")
-        tube_viz("lightblue", "yellow")
-    with st.expander("Ag⁺ + K₂CrO₄"):
-        st.info("Tidak terbentuk endapan khas, AgCrO₄ sedikit larut.")
-        tube_viz("lightblue", "orange")
-    with st.expander("Hg₂²⁺ + K₂CrO₄"):
-        st.warning("Terbentuk endapan merah Hg₂CrO₄.")
-        tube_viz("lightblue", "red")
-
-with tab_nh4oh:
-    st.header("Kation Golongan I + NH₄OH Berlebih")
-    with st.expander("AgCl + NH₄OH"):
-        st.success("AgCl larut membentuk kompleks [Ag(NH₃)₂]⁺.")
-        tube_viz("lightblue", "white")
-    with st.expander("PbCl₂ + NH₄OH"):
-        st.info("Pb(OH)₂ endapan putih, sedikit larut dalam NH₄OH berlebih.")
-        tube_viz("lightblue", "white")
-    with st.expander("Hg₂Cl₂ + NH₄OH"):
-        st.warning("Terbentuk campuran Hg (hitam) + Hg(NH₂)Cl (putih).")
-        tube_viz("lightblue", "gray")
-
-        elif gol=="Golongan III":
-            st.info("Uji dengan NH₄OH → endapan Fe(OH)₃ & Al(OH)₃.")
-            if st.button("Uji Fe³⁺"):
-                st.latex(r"Fe^{3+} + 3SCN^- \rightarrow Fe(SCN)_3 (Merah)")
-                tube_viz("#b71c1c")
-            if st.button("Uji Al³⁺"):
-                st.latex(r"Al^{3+} + 3OH^- \rightarrow Al(OH)_3 (Putih)")
-                tube_viz("lightblue","white",35)
-        elif gol=="Golongan IV":
-            st.info("Identifikasi Ba²⁺, Sr²⁺, Ca²⁺ dengan uji nyala & endapan.")
-            st.markdown("### Barium (Ba²⁺)")
-            flame_viz("#adff2f"); st.write("Nyala hijau apel")
-            st.latex(r"Ba^{2+} + CrO_4^{2-} \rightarrow BaCrO_4 (Kuning)")
-            st.markdown("### Stronsium (Sr²⁺)")
-            flame_viz("#ff0000"); st.write("Nyala merah karmin")
-            st.latex(r"Sr^{2+} + CO_3^{2-} \rightarrow SrCO_3 (Putih)")
-            st.markdown("### Kalsium (Ca²⁺)")
-            flame_viz("#ff4500"); st.write("Nyala merah bata")
-            st.latex(r"Ca^{2+} + C_2O_4^{2-} \rightarrow CaC_2O_4 (Putih)")
+    elif gol=="Golongan III":
+        st.info("Uji dengan NH₄OH → endapan Fe(OH)₃ & Al(OH)₃.")
+        if st.button("Uji Fe³⁺"):
+            st.latex(r"Fe^{3+} + 3SCN^- \rightarrow Fe(SCN)_3 (Merah)")
+            tube_viz("#b71c1c")
+        if st.button("Uji Al³⁺"):
+            st.latex(r"Al^{3+} + 3OH^- \rightarrow Al(OH)_3 (Putih)")
+            tube_viz("lightblue","white",35)
+    elif gol=="Golongan IV":
+        st.info("Identifikasi Ba²⁺, Sr²⁺, Ca²⁺ dengan uji nyala & endapan.")
+        st.markdown("### Barium (Ba²⁺)")
+        flame_viz("#adff2f"); st.write("Nyala hijau apel")
+        st.latex(r"Ba^{2+} + CrO_4^{2-} \rightarrow BaCrO_4 (Kuning)")
+        st.markdown("### Stronsium (Sr²⁺)")
+        flame_viz("#ff0000"); st.write("Nyala merah karmin")
+        st.latex(r"Sr^{2+} + CO_3^{2-} \rightarrow SrCO_3 (Putih)")
+        st.markdown("### Kalsium (Ca²⁺)")
+        flame_viz("#ff4500"); st.write("Nyala merah bata")
+        st.latex(r"Ca^{2+} + C_2O_4^{2-} \rightarrow CaC_2O_4 (Putih)")
 
 # --- TAB 3: ANALISIS ANION (lengkap + animasi gelembung) ---
 with tab3:
@@ -424,7 +375,6 @@ with tab4:
             st.write("👍 Baik! Tetap semangat belajar.")
         else:
             st.write("📚 Perlu belajar lagi agar lebih memahami materi.")
-
 
 
 
