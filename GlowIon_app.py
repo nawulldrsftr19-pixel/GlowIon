@@ -321,15 +321,23 @@ with tab_hg:
     st.error("Hg₂Cl₂ + NH₄OH → campuran Hg (hitam) + Hg(NH₂)Cl (putih).")
     tube_viz("lightblue", "gray")
 
-        
-    elif gol=="Golongan III":
-        st.info("Uji dengan NH₄OH → endapan Fe(OH)₃ & Al(OH)₃.")
-        if st.button("Uji Fe³⁺"):
-            st.latex(r"Fe^{3+} + 3SCN^- \rightarrow Fe(SCN)_3 (Merah)")
-            tube_viz("#b71c1c")
-        if st.button("Uji Al³⁺"):
+elif gol=="Golongan III":
+    st.info("Uji dengan NH₄OH → endapan Fe(OH)₃ & Al(OH)₃.")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        if st.button("🔴 Uji Fe³⁺"):
+            st.latex(r"Fe^{3+} + 3OH^- \rightarrow Fe(OH)_3 (Endapan Merah Kecoklatan)")
+            st.latex(r"Fe^{3+} + 3SCN^- \rightarrow Fe(SCN)_3 (Merah Darah)")
+            tube_viz("lightblue", "#b71c1c", 40)  # endapan merah
+
+    with col2:
+        if st.button("⚪ Uji Al³⁺"):
             st.latex(r"Al^{3+} + 3OH^- \rightarrow Al(OH)_3 (Putih)")
-            tube_viz("lightblue","white",35)
+            st.latex(r"Al(OH)_3 + OH^- \rightarrow [Al(OH)_4]^- (Larut)")
+            tube_viz("lightblue", "white", 35)  # endapan putih
+            
     elif gol=="Golongan IV":
         st.info("Identifikasi Ba²⁺, Sr²⁺, Ca²⁺ dengan uji nyala & endapan.")
         st.markdown("### Barium (Ba²⁺)")
