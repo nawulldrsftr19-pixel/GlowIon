@@ -306,25 +306,25 @@ with tab_nh4oh:
         st.warning("Terbentuk campuran Hg (hitam) + Hg(NH₂)Cl (putih).")
         tube_viz("lightblue", "gray")
 
-    elif gol=="Golongan III":
-        st.info("Uji dengan NH₄OH → endapan Fe(OH)₃ & Al(OH)₃.")
-        if st.button("Uji Fe³⁺"):
-            st.latex(r"Fe^{3+} + 3SCN^- \rightarrow Fe(SCN)_3 (Merah)")
-            tube_viz("#b71c1c")
-        if st.button("Uji Al³⁺"):
-            st.latex(r"Al^{3+} + 3OH^- \rightarrow Al(OH)_3 (Putih)")
-            tube_viz("lightblue","white",35)
-    elif gol=="Golongan IV":
-        st.info("Identifikasi Ba²⁺, Sr²⁺, Ca²⁺ dengan uji nyala & endapan.")
-        st.markdown("### Barium (Ba²⁺)")
-        flame_viz("#adff2f"); st.write("Nyala hijau apel")
-        st.latex(r"Ba^{2+} + CrO_4^{2-} \rightarrow BaCrO_4 (Kuning)")
-        st.markdown("### Stronsium (Sr²⁺)")
-        flame_viz("#ff0000"); st.write("Nyala merah karmin")
-        st.latex(r"Sr^{2+} + CO_3^{2-} \rightarrow SrCO_3 (Putih)")
-        st.markdown("### Kalsium (Ca²⁺)")
-        flame_viz("#ff4500"); st.write("Nyala merah bata")
-        st.latex(r"Ca^{2+} + C_2O_4^{2-} \rightarrow CaC_2O_4 (Putih)")
+        elif gol=="Golongan III":
+            st.info("Uji dengan NH₄OH → endapan Fe(OH)₃ & Al(OH)₃.")
+            if st.button("Uji Fe³⁺"):
+                st.latex(r"Fe^{3+} + 3SCN^- \rightarrow Fe(SCN)_3 (Merah)")
+                tube_viz("#b71c1c")
+            if st.button("Uji Al³⁺"):
+                st.latex(r"Al^{3+} + 3OH^- \rightarrow Al(OH)_3 (Putih)")
+                tube_viz("lightblue","white",35)
+        elif gol=="Golongan IV":
+            st.info("Identifikasi Ba²⁺, Sr²⁺, Ca²⁺ dengan uji nyala & endapan.")
+            st.markdown("### Barium (Ba²⁺)")
+            flame_viz("#adff2f"); st.write("Nyala hijau apel")
+            st.latex(r"Ba^{2+} + CrO_4^{2-} \rightarrow BaCrO_4 (Kuning)")
+            st.markdown("### Stronsium (Sr²⁺)")
+            flame_viz("#ff0000"); st.write("Nyala merah karmin")
+            st.latex(r"Sr^{2+} + CO_3^{2-} \rightarrow SrCO_3 (Putih)")
+            st.markdown("### Kalsium (Ca²⁺)")
+            flame_viz("#ff4500"); st.write("Nyala merah bata")
+            st.latex(r"Ca^{2+} + C_2O_4^{2-} \rightarrow CaC_2O_4 (Putih)")
 
 # --- TAB 3: ANALISIS ANION (lengkap + animasi gelembung) ---
 with tab3:
