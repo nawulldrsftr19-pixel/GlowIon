@@ -249,14 +249,7 @@ with tab2:
             # Reaksi kation Golongan I
             st.latex(r"Ag^+ + Cl^- \rightarrow AgCl(s) \downarrow \text{ (Putih)}")
             st.latex(r"Pb^{2+} + 2Cl^- \rightarrow PbCl_2(s) \downarrow \text{ (Putih)}")
-            st.latex(r"Hg_2^{2+} + 2Cl^- \rightarrow Hg_2Cl_2(s) \downarrow \text{ (Putih)}")
-        
-        # Animasi sentrifugasi
-        centrifuge_action()
-        
-        # Visual tabung dengan endapan putih
-        tube_viz("lightblue","white",40)
-import streamlit as st
+            st.latex(r"Hg_2^{2+} + 2Cl^- \rightarrow Hg_2Cl_2(s) \downarrow \text{ (Putih)}")import streamlit as st
 
 st.title("⚗️ Uji Spesifik Kation Golongan I")
 
@@ -294,6 +287,14 @@ with tab_hg:
     st.error("Hg₂Cl₂ + NH₄OH → campuran Hg (hitam) + Hg(NH₂)Cl (putih).")
     st.markdown("🧪 Tabung dengan endapan **hitam + putih bercampur**.")
 
+
+    
+        
+        # Animasi sentrifugasi
+        centrifuge_action()
+        
+        # Visual tabung dengan endapan putih
+        tube_viz("lightblue","white",40)
 
     elif gol=="Golongan III":
         st.info("Uji dengan NH₄OH → endapan Fe(OH)₃ & Al(OH)₃.")
