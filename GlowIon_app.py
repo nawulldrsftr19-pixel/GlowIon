@@ -238,7 +238,7 @@ with tab1:
 # --- TAB 2: ANALISIS KATION (dengan animasi) ---
 import streamlit as st
 
-st.title("📄 Halaman 2 — Uji Spesifik Kation Golongan I")
+st.title("📄— Uji Spesifik Kation Golongan I")
 
 # Fungsi tabung dengan animasi lebih nyata
 def tube_viz(liquid_color, precipitate_color, dissolve=False, height=140):
@@ -275,7 +275,7 @@ def tube_viz(liquid_color, precipitate_color, dissolve=False, height=140):
 # Tab menu untuk tiap kation
 tab_ag, tab_pb, tab_hg = st.tabs(["Ag⁺", "Pb²⁺", "Hg₂²⁺"])
 
-with tab_ag:
+with tab2_ag:
     st.subheader("Ag⁺ + K₂CrO₄")
     st.info("Ag⁺ + K₂CrO₄ → Ag₂CrO₄ (endapan merah bata).")
     tube_viz("lightblue", "orange")
@@ -284,7 +284,7 @@ with tab_ag:
     st.success("AgCl larut membentuk kompleks [Ag(NH₃)₂]⁺.")
     tube_viz("lightblue", "white", dissolve=True)
 
-with tab_pb:
+with tab2_pb:
     st.subheader("Pb²⁺ + K₂CrO₄")
     st.success("Pb²⁺ + K₂CrO₄ → PbCrO₄ (endapan kuning).")
     tube_viz("lightblue", "yellow")
@@ -293,7 +293,7 @@ with tab_pb:
     st.info("Pb²⁺ → Pb(OH)₂ endapan putih, sedikit larut.")
     tube_viz("lightblue", "white")
 
-with tab_hg:
+with tab2_hg:
     st.subheader("Hg₂²⁺ + K₂CrO₄")
     st.warning("Hg₂²⁺ + K₂CrO₄ → Hg₂CrO₄ (endapan merah).")
     tube_viz("lightblue", "red")
