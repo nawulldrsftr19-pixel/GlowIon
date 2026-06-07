@@ -288,10 +288,7 @@ with tab_hg:
     st.subheader("Uji Hg₂²⁺ dengan NH₄OH berlebih")
     st.error("Hg₂Cl₂ + NH₄OH → campuran Hg (hitam) + Hg(NH₂)Cl (putih).")
     st.markdown("🧪 Tabung dengan endapan **hitam + putih bercampur**.")
-
-
-    
-        
+  
         # Animasi sentrifugasi
         centrifuge_action()
         
