@@ -195,7 +195,7 @@ tab1, tab2, tab3, tab4 = st.tabs([
     "🧪 Analisis Anion", 
     "📝 Kuis Kation & Anion"])
 
-# --- TAB 1: BAGAN (tetap ada, jangan diubah) ---
+# --- TAB 1: BAGAN ---
 with tab1:
     st.subheader("📊 Bagan Pemisahan Kation")
     if 'langkah' not in st.session_state:
@@ -275,41 +275,63 @@ with tab2:
         flame_viz("#ff4500"); st.write("Nyala merah bata")
         st.latex(r"Ca^{2+} + C_2O_4^{2-} \rightarrow CaC_2O_4 (Putih)")
 
-st.title("⚗️ Uji Spesifik Kation Golongan I")
+import streamlit as st
+
+# Halaman 2: Uji Spesifik
+st.title("📄 Halaman 2 — Uji Spesifik Kation Golongan I")
+
+# Fungsi visual tabung reaksi dengan animasi endapan turun
+def tube_viz(liquid_color, precipitate_color, height=120):
+    st.markdown(f"""
+    <div style="width:60px;height:{height}px;background:{liquid_color};
+                border-radius:10px;position:relative;margin:20px auto;">
+        <div style="width:60px;height:30px;background:{precipitate_color};
+                    position:absolute;bottom:0;border-radius:0 0 10px 10px;
+                    animation: turun 2s ease-in-out;"></div>
+    </div>
+    <style>
+        @keyframes turun {{
+            0% {{ bottom:100px; opacity:0; }}
+            100% {{ bottom:0; opacity:1; }}
+        }}
+    </style>
+    """, unsafe_allow_html=True)
 
 # Tab menu untuk tiap kation
 tab_ag, tab_pb, tab_hg = st.tabs(["Ag⁺", "Pb²⁺", "Hg₂²⁺"])
 
 # ─── Ag⁺ ───────────────────────────────
 with tab_ag:
-    st.subheader("Uji Ag⁺ dengan K₂CrO₄")
+    st.subheader("Ag⁺ + K₂CrO₄")
     st.info("Ag⁺ + K₂CrO₄ → Ag₂CrO₄ (endapan merah bata, sedikit larut).")
-    st.markdown("Visualisasi:")
-    st.markdown("🧪 Tabung dengan endapan **merah bata** di dasar.")
+    tube_viz("lightblue", "orange")
 
-    st.subheader("Uji Ag⁺ dengan NH₄OH berlebih")
+    st.subheader("AgCl + NH₄OH berlebih")
     st.success("AgCl larut membentuk kompleks [Ag(NH₃)₂]⁺.")
-    st.markdown("🧪 Tabung awal putih → larut, menjadi jernih.")
+    tube_viz("lightblue", "white")
 
 # ─── Pb²⁺ ───────────────────────────────
 with tab_pb:
-    st.subheader("Uji Pb²⁺ dengan K₂CrO₄")
+    st.subheader("Pb²⁺ + K₂CrO₄")
     st.success("Pb²⁺ + K₂CrO₄ → PbCrO₄ (endapan kuning).")
-    st.markdown("🧪 Tabung dengan endapan **kuning cerah** di dasar.")
+    tube_viz("lightblue", "yellow")
 
-    st.subheader("Uji Pb²⁺ dengan NH₄OH berlebih")
+    st.subheader("Pb²⁺ + NH₄OH berlebih")
     st.info("Pb²⁺ → Pb(OH)₂ endapan putih, sedikit larut dalam NH₄OH berlebih.")
-    st.markdown("🧪 Tabung dengan endapan **putih** agak berkurang.")
+    tube_viz("lightblue", "white")
 
 # ─── Hg₂²⁺ ───────────────────────────────
 with tab_hg:
-    st.subheader("Uji Hg₂²⁺ dengan K₂CrO₄")
+    st.subheader("Hg₂²⁺ + K₂CrO₄")
     st.warning("Hg₂²⁺ + K₂CrO₄ → Hg₂CrO₄ (endapan merah).")
-    st.markdown("🧪 Tabung dengan endapan **merah** di dasar.")
+    tube_viz("lightblue", "red")
 
-    st.subheader("Uji Hg₂²⁺ dengan NH₄OH berlebih")
+    st.subheader("Hg₂Cl₂ + NH₄OH berlebih")
     st.error("Hg₂Cl₂ + NH₄OH → campuran Hg (hitam) + Hg(NH₂)Cl (putih).")
-    st.markdown("🧪 Tabung dengan endapan **hitam + putih bercampur**.")
+    tube_viz("lightblue", "gray")
+
+
+
 
 # --- TAB 3: ANALISIS ANION (lengkap + animasi gelembung) ---
 with tab3:
