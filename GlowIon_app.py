@@ -255,61 +255,6 @@ with tab2:
         # Visual tabung dengan endapan putih
         tube_viz("lightblue","white",40)
         
-    import streamlit as st
-
-    st.title("📄 — Uji Spesifik Kation Golongan I")
-        
-        # Fungsi tabung dengan animasi lebih nyata
-    def tube_viz(liquid_color, precipitate_color, dissolve=False, height=140):
-            if dissolve:
-                # efek larutan jernih setelah endapan larut
-                st.markdown(f"""
-                <div style="width:70px;height:{height}px;background:{liquid_color};
-                            border-radius:10px;position:relative;margin:20px auto;
-                            animation: fade 3s forwards;"></div>
-                <style>
-                    @keyframes fade {{
-                        0% {{ background:{liquid_color}; }}
-                        100% {{ background:transparent; }}
-                    }}
-                </style>
-                """, unsafe_allow_html=True)
-            else:
-                # efek endapan turun perlahan
-                st.markdown(f"""
-                <div style="width:70px;height:{height}px;background:{liquid_color};
-                            border-radius:10px;position:relative;margin:20px auto;">
-                    <div style="width:70px;height:35px;background:{precipitate_color};
-                                position:absolute;bottom:0;border-radius:0 0 10px 10px;
-                                animation: turun 2s ease-in-out;"></div>
-                </div>
-                <style>
-                    @keyframes turun {{
-                        0% {{ bottom:120px; opacity:0; }}
-                        100% {{ bottom:0; opacity:1; }}
-                    }}
-                </style>
-                """, unsafe_allow_html=True)
-        
-    # Tab menu untuk tiap kation
-    tab_ag, tab_pb, tab_hg = st.tabs(["Ag⁺", "Pb²⁺", "Hg₂²⁺"])
-        
-        with tab_ag:
-            st.subheader("Ag⁺ + K₂CrO₄")
-            st.info("Ag⁺ + K₂CrO₄ → Ag₂CrO₄ (endapan merah bata).")
-            tube_viz("lightblue", "orange")
-        
-            st.subheader("AgCl + NH₄OH berlebih")
-            st.success("AgCl larut membentuk kompleks [Ag(NH₃)₂]⁺.")
-            tube_viz("lightblue", "white", dissolve=True)
-        
-        with tab_pb:
-            st.subheader("Pb²⁺ + K₂CrO₄")
-            st.success("Pb²⁺ + K₂CrO₄ → PbCrO₄ (endapan kuning).")
-            tube_viz("lightblue", "yellow")
-
-    st.subheader("Pb²⁺ + NH₄OH berlebih")
-    st.info("
     elif gol=="Golongan III":
         st.info("Uji dengan NH₄OH → endapan Fe(OH)₃ & Al(OH)₃.")
         if st.button("Uji Fe³⁺"):
