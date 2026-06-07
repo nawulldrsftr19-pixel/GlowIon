@@ -58,7 +58,7 @@ st.markdown(""" ... """, unsafe_allow_html=True)
 
 
 #--- CSS untuk judul ---
-st.title ("LABKIM — Analisis Kualitatif Kation DAN Anion (Metode Sentrifugasi) dan uji spesifik")
+st.title ("GlowIon — Analisis Kualitatif Kation DAN Anion (Metode Sentrifugasi) dan uji spesifik")
 # --- Judul dengan tab warna + efek hover glow ---
 st.markdown("""
 <style>
