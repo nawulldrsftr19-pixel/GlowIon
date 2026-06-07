@@ -36,15 +36,6 @@ st.markdown("""
 }
 </style>
 
-<div class="title-tabs">
-    <div class="title-tab tab1">LABKIM</div>
-    <div class="title-tab tab2">ANALISIS</div>
-    <div class="title-tab tab3">KUALITATIF KATION</div>
-    <div class="title-tab tab4">DAN ANION</div>
-</div>
-""", unsafe_allow_html=True)
-st.set_page_config(page_title="Virtual Lab: Analisis Kualitatif", layout="wide")
-
 # --- CSS untuk animasi ---
 st.markdown("""
 <style>
