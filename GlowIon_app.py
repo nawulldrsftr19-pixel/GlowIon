@@ -251,44 +251,7 @@ with tab2:
             st.latex(r"Pb^{2+} + 2Cl^- \rightarrow PbCl_2(s) \downarrow \text{ (Putih)}")
             st.latex(r"Hg_2^{2+} + 2Cl^- \rightarrow Hg_2Cl_2(s) \downarrow \text{ (Putih)}")
             
-import streamlit as st
 
-st.title("⚗️ Uji Spesifik Kation Golongan I")
-
-# Tab menu untuk tiap kation
-tab_ag, tab_pb, tab_hg = st.tabs(["Ag⁺", "Pb²⁺", "Hg₂²⁺"])
-
-# ─── Ag⁺ ───────────────────────────────
-with tab_ag:
-    st.subheader("Uji Ag⁺ dengan K₂CrO₄")
-    st.info("Ag⁺ + K₂CrO₄ → Ag₂CrO₄ (endapan merah bata, sedikit larut).")
-    st.markdown("Visualisasi:")
-    st.markdown("🧪 Tabung dengan endapan **merah bata** di dasar.")
-
-    st.subheader("Uji Ag⁺ dengan NH₄OH berlebih")
-    st.success("AgCl larut membentuk kompleks [Ag(NH₃)₂]⁺.")
-    st.markdown("🧪 Tabung awal putih → larut, menjadi jernih.")
-
-# ─── Pb²⁺ ───────────────────────────────
-with tab_pb:
-    st.subheader("Uji Pb²⁺ dengan K₂CrO₄")
-    st.success("Pb²⁺ + K₂CrO₄ → PbCrO₄ (endapan kuning).")
-    st.markdown("🧪 Tabung dengan endapan **kuning cerah** di dasar.")
-
-    st.subheader("Uji Pb²⁺ dengan NH₄OH berlebih")
-    st.info("Pb²⁺ → Pb(OH)₂ endapan putih, sedikit larut dalam NH₄OH berlebih.")
-    st.markdown("🧪 Tabung dengan endapan **putih** agak berkurang.")
-
-# ─── Hg₂²⁺ ───────────────────────────────
-with tab_hg:
-    st.subheader("Uji Hg₂²⁺ dengan K₂CrO₄")
-    st.warning("Hg₂²⁺ + K₂CrO₄ → Hg₂CrO₄ (endapan merah).")
-    st.markdown("🧪 Tabung dengan endapan **merah** di dasar.")
-
-    st.subheader("Uji Hg₂²⁺ dengan NH₄OH berlebih")
-    st.error("Hg₂Cl₂ + NH₄OH → campuran Hg (hitam) + Hg(NH₂)Cl (putih).")
-    st.markdown("🧪 Tabung dengan endapan **hitam + putih bercampur**.")
-  
 # Animasi sentrifugasi
 centrifuge_action()
         
